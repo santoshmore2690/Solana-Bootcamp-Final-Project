@@ -1,0 +1,56 @@
+name: MyUniqueNFTContract
+symbol: MUNC
+decimals: 0
+uri: "https://api.myuniqueNFTcontract.com/metadata/{id}.json"
+
+traits:
+  - name: Rarity
+    values:
+      - Common
+      - Uncommon
+      - Rare
+      - Legendary
+
+schema:
+  properties:
+    name:
+      type: string
+      description: The name of the NFT.
+    description:
+      type: string
+      description: A description of the NFT.
+    image:
+      type: string
+      format: uri
+      description: A URI pointing to the image representing the NFT.
+
+functions:
+  mint:
+    description: Mint a new NFT.
+    args:
+      - name: to
+        type: address
+        description: The address to mint the NFT to.
+      - name: tokenId
+        type: uint64
+        description: The unique ID of the NFT.
+
+  burn:
+    description: Burn an existing NFT.
+    args:
+      - name: tokenId
+        type: uint64
+        description: The unique ID of the NFT to burn.
+
+  transfer:
+    description: Transfer ownership of an NFT to another address.
+    args:
+      - name: from
+        type: address
+        description: The current owner of the NFT.
+      - name: to
+        type: address
+        description: The address to transfer the ownership to.
+      - name: tokenId
+        type: uint64
+        description: The unique ID of the NFT to transfer.
